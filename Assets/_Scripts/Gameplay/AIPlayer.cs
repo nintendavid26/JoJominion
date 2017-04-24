@@ -7,7 +7,32 @@ using System.Linq;
 public delegate void SimulatedActionC(Card c);
 public delegate void SimulatedAction();
 //public delegate void SimulatedAction();
+public struct ActionAndCard
+{
+    public SimulatedActionC TypeOfActionC;
+    public SimulatedAction TypeOfAction;
 
+    public Card Card;
+
+    public ActionAndCard(SimulatedActionC Action, Card c)
+    {
+        TypeOfActionC = Action;
+        TypeOfAction = null;
+        Card = c;
+    }
+
+    public ActionAndCard(SimulatedAction Action)
+    {
+        TypeOfAction = Action;
+        TypeOfActionC = null;
+        Card = null;
+    }
+
+    public bool UsesCard()
+    {
+        return Card != null;
+    }
+}
 public class AIPlayer : Player
 {
 
@@ -38,32 +63,7 @@ public class AIPlayer : Player
         }
 
     }
-    public struct ActionAndCard
-    {
-        public SimulatedActionC TypeOfActionC;
-        public SimulatedAction  TypeOfAction;
-
-        public Card Card;
-
-        public ActionAndCard(SimulatedActionC Action, Card c)
-        {
-            TypeOfActionC = Action;
-            TypeOfAction = null;
-            Card=c;
-        }
-
-        public ActionAndCard(SimulatedAction Action)
-        {
-            TypeOfAction = Action;
-            TypeOfActionC = null;
-            Card = null;
-        }
-
-        public bool UsesCard()
-        {
-            return Card != null;
-        }
-    }
+   
 
     public TreeNode<Decision> DecisionTree;
     public Decision CurrentDecision;
