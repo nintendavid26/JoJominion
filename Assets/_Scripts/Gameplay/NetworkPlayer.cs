@@ -8,6 +8,7 @@ public class NetworkPlayer : Player
 
     public NetworkPlayer(NetworkPlayer p) : base(p)
     {
+        //Testing git
 
     }
 
