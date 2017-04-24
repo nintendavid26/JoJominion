@@ -1,0 +1,10 @@
+JoJoMinion:
+Rules:
+Setup: 10 card piles, 5 2-4 cost, 3 5-7 cost, 2 8-10 cost.
+	   Each player starts with 100 HP, A 10 card deck (7 coins, 3 punches)
+	   
+Gameplay:
+	Each turn a player may play any action cards, and buy 1 card.
+	Cards that deal damage causes the opponent to lose HP.
+	If the other person's HP reaches 0 you win.
+	

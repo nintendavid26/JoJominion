@@ -1,0 +1,11 @@
+{
+    "Cost": 0,
+    "Name": "Punch",
+    "EffectDes": "Deal 1 damage",
+    "Collectible": true,
+    "ShopImgY": -115.0,
+    "InfoImgY": 0.0,
+    "InfoImgH": 450.0,
+    "Tags": [],
+    "WaitDes": ""
+}

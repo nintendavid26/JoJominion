@@ -1,0 +1,13 @@
+{
+    "Cost": 8,
+    "Name": "Diavolo",
+    "EffectDes": "Deal 6 damage.\nThis costs 1 less for each damage you've dealt this turn.",
+    "Collectible": true,
+    "ShopImgY": -45.0,
+    "InfoImgY": -155,
+    "InfoImgH": 685,
+    "Tags": [
+        "Stand"
+    ],
+    "WaitDes": ""
+}

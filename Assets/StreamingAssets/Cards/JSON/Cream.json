@@ -1,0 +1,13 @@
+{
+    "Cost": 7,
+    "Name": "Cream",
+    "EffectDes": "Deal 3 damage.\nYou may destroy up to 2 cards in your discard",
+    "Collectible": true,
+    "ShopImgY": -63.0,
+    "InfoImgY": 0.0,
+    "InfoImgH": 375.0,
+    "Tags": [
+        "Stand"
+    ],
+    "WaitDes": ""
+}

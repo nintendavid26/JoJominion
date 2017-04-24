@@ -1,0 +1,13 @@
+{
+    "Cost": 10,
+    "Name": "Johnny Joestar",
+    "EffectDes": "Deal 5 damage.",
+    "Collectible": true,
+    "ShopImgY": -63.0,
+    "InfoImgY": -125.0,
+    "InfoImgH": 838.0,
+    "Tags": [
+        "Human"
+    ],
+    "WaitDes": ""
+}

@@ -1,0 +1,78 @@
+{
+    "Player": {
+        "instanceID": 0
+    },
+    "Enemy": {
+        "instanceID": 0
+    },
+    "FileName": "test",
+    "TurnCount": 0,
+    "con": {
+        "instanceID": 0
+    },
+    "phase": 0,
+    "ShopCount": [
+        9,
+        10,
+        8,
+        10,
+        9,
+        10,
+        10,
+        10,
+        10,
+        10
+    ],
+    "ShopCards": [
+        "Shigechi",
+        "Survivor",
+        "George Joestar",
+        "Tonio",
+        "Highway Star",
+        "Lisa Lisa",
+        "Cream",
+        "Weather Report",
+        "Killer Queen",
+        "Diavolo"
+    ],
+    "PlayerHand": [
+        "Punch",
+        "Punch",
+        "Coin",
+        "Coin",
+        "Coin"
+    ],
+    "PlayerDeck": [
+        "Punch",
+        "Shigechi",
+        "Coin",
+        "Coin",
+        "George Joestar",
+        "Coin",
+        "Coin"
+    ],
+    "PlayerDiscard": [],
+    "PlayerFlagS": [],
+    "EnemyHand": [
+        "Punch",
+        "Coin",
+        "George Joestar",
+        "Punch",
+        "Coin"
+    ],
+    "EnemyDeck": [
+        "Coin",
+        "Coin",
+        "Punch",
+        "Coin",
+        "Coin",
+        "Coin",
+        "Highway Star"
+    ],
+    "EnemyDiscard": [],
+    "EnemyFlagS": [],
+    "PlayerHP": 97,
+    "EnemyHP": 97,
+    "PlayerFlagV": [],
+    "EnemyFlagV": []
+}

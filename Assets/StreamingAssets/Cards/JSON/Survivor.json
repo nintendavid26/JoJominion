@@ -1,0 +1,13 @@
+{
+    "Cost": 2,
+    "Name": "Survivor",
+    "EffectDes": "Deal 2 damage to each player.",
+    "Collectible": true,
+    "ShopImgY": -63.0,
+    "InfoImgY": 0.0,
+    "InfoImgH": 375.0,
+    "Tags": [
+        "Stand"
+    ],
+    "WaitDes": ""
+}

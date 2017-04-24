@@ -1,0 +1,13 @@
+{
+    "Cost": 2,
+    "Name": "Hey Ya",
+    "EffectDes": "Look at the top 2 cards of your deck, put 1 in your hand and discard the other",
+    "Collectible": true,
+    "ShopImgY": -45.0,
+    "InfoImgY": -22.5,
+    "InfoImgH": 420.0,
+    "Tags": [
+        "Stand"
+    ],
+    "WaitDes": "Add a card from the top of your deck to your hand, discard the others"
+}

@@ -1,0 +1,13 @@
+{
+    "Cost": 3,
+    "Name": "George Joestar",
+    "EffectDes": "Gain a card that costs 5 or less",
+    "Collectible": true,
+    "ShopImgY": -104.0,
+    "InfoImgY": -104.0,
+    "InfoImgH": 583.0,
+    "Tags": [
+        "Human"
+    ],
+    "WaitDes": "Gain a card that costs 5 or less."
+}

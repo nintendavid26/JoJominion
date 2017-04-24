@@ -1,0 +1,13 @@
+{
+    "Cost": 7,
+    "Name": "Lisa Lisa",
+    "EffectDes": "+3 Money",
+    "Collectible": true,
+    "ShopImgY": -90.0,
+    "InfoImgY": -200.0,
+    "InfoImgH": 900.0,
+    "Tags": [
+        "Human"
+    ],
+    "WaitDes": ""
+}
