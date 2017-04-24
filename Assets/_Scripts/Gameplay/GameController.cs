@@ -28,6 +28,8 @@ public class GameController : MonoBehaviour {
     public Card AIcardInUse = null;
     public Card AIselectedCard = null;
 
+    public Queue<ActionAndCard> ActionQueue=new Queue<ActionAndCard>();
+
     public enum Phase {Play,Buy,End,EPlay,EBuy,EEnd};
     public Phase CurrentPhase;
     public void Awake()
