@@ -1,11 +1,13 @@
 {
     "Cost": 8,
+    "id": 0,
     "Name": "Killer Queen",
-    "EffectDes": "Your opponent gains a Bomb that deals 10 damage to them when drawn",
+    "EffectDes": "+2 coins.\nYour opponent gains a Bomb that deals 10 damage to them when drawn.",
     "Collectible": true,
     "ShopImgY": -115.0,
     "InfoImgY": -200.0,
     "InfoImgH": 776.0,
+    "ActionCost": 0,
     "Tags": [
         "Stand"
     ],

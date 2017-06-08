@@ -1,11 +1,13 @@
 {
     "Cost": 4,
+    "id": 0,
     "Name": "Notorious BIG",
-    "EffectDes": "Deal 2 damage.\nWhen this card is destroyed on your turn, you may destroy a card in your discard or hand.",
+    "EffectDes": "Deal 2 damage.\nWhen this card is destroyed on your turn, gain 5 coins.",
     "Collectible": true,
     "ShopImgY": 27.0,
     "InfoImgY": 0.0,
     "InfoImgH": 525.0,
+    "ActionCost": 0,
     "Tags": [
         "Stand"
     ],

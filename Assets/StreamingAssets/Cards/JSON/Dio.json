@@ -1,0 +1,15 @@
+{
+    "Cost": 10,
+    "id": 0,
+    "Name": "Dio",
+    "EffectDes": "Discard the top card of your opponent's deck, then they gain a vampire on top of their deck. -3 Actions",
+    "Collectible": true,
+    "ShopImgY": -63.0,
+    "InfoImgY": 0.0,
+    "InfoImgH": 375.0,
+    "ActionCost": 0,
+    "Tags": [
+        "Stand"
+    ],
+    "WaitDes": ""
+}

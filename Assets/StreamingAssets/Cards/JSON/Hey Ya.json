@@ -1,11 +1,13 @@
 {
     "Cost": 2,
+    "id": 0,
     "Name": "Hey Ya",
     "EffectDes": "Look at the top 2 cards of your deck, put 1 in your hand and discard the other",
     "Collectible": true,
     "ShopImgY": -45.0,
     "InfoImgY": -22.5,
     "InfoImgH": 420.0,
+    "ActionCost": 0,
     "Tags": [
         "Stand"
     ],

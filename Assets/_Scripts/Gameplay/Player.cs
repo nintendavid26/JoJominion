@@ -18,6 +18,7 @@ public abstract class Player : MonoBehaviour {
     public Player Enemy;
     public int DmgDealt=0;
     public int BuysLeft = 1;
+    public int ActionsLeft=2;
     public Dictionary<string, bool> Flags = new Dictionary<string, bool>();
     public HitEffect hitEffect;
     public CoinEffect coinEffect;
@@ -73,9 +74,6 @@ public abstract class Player : MonoBehaviour {
             c.OnDraw(this);
 
         }
-
-        
-        
     }
 
     public void TakeDamage(int Damage)
@@ -86,7 +84,7 @@ public abstract class Player : MonoBehaviour {
             Lose();
         }
         HitEffect.Make(Damage, hitEffSpawnLoc, hitEffect);
-        Enemy.DmgDealt++;
+        Enemy.DmgDealt+=Damage;
 
     }
 
@@ -94,6 +92,15 @@ public abstract class Player : MonoBehaviour {
     {
         Money += money;
         CoinEffect.Make(money, hitEffSpawnLoc, coinEffect);
+    }
+
+    public void GetActions(int amnt)
+    {
+        ActionsLeft += amnt;
+        //CoinEffect.Make(money, hitEffSpawnLoc, coinEffect);
+    }
+    public void UseActions(int amnt) {
+        ActionsLeft -= amnt;
     }
 
     public void Heal(int Amount)
@@ -104,6 +111,7 @@ public abstract class Player : MonoBehaviour {
 
     public void Lose()
     {
+        GameController.Controller.WinText.gameObject.SetActive(true);
 
     }
 
@@ -114,10 +122,13 @@ public abstract class Player : MonoBehaviour {
         Discarded.AddRange(Hand);
         Hand.Clear();
         Money = 0;
-        Draw(5);
+        int draw = 5;
+        if (GetFlag("Draw1Less")) { draw = 4;}
+        Draw(draw);
         ResetFlags();
         DmgDealt = 0;
         BuysLeft = 1;
+        ActionsLeft = 2;
     }
 
     public void DiscardHand()
@@ -125,6 +136,11 @@ public abstract class Player : MonoBehaviour {
 
         Discarded.AddRange(Hand);
         Hand.Clear();
+    }
+
+    public bool CanPlayCard(Card c)
+    {
+        return ActionsLeft >= c.ActionCost;
     }
 
     public void Buy(Card C) {
@@ -165,7 +181,14 @@ public abstract class Player : MonoBehaviour {
     {
         Card C;
         C = Instantiate(Card.Get(c), transform);
-        loc.Add(C);
+        if (pos == -1||(pos == 0 && loc.Count == 0))
+        {
+            loc.Add(C);
+        }
+        else
+        {
+            loc.Insert(pos, C);
+        }
         if (fromShop&&GameController.Controller.ShopCards.ContainsKey(c)) { GameController.Controller.ShopCards[c]--; }
         //return C;
     }
@@ -184,15 +207,7 @@ public abstract class Player : MonoBehaviour {
         C.OnDraw(this);
     }
 
-    public void PlayAllBasic()
-    {
-        List<Card> Basic = Hand.Where(x => x.Cost == 0).ToList();
-        int j = Basic.Count;
-       for (int i =0;i< j; i++)
-        {
-            PlayCard(Basic[0]);
-        }
-    }
+    
 
     public void PlayCard(string C)
     {
@@ -205,10 +220,10 @@ public abstract class Player : MonoBehaviour {
     public virtual void PlayCard(Card C)
     {
         
-        if (!InPlayPhase()) { return; }
-        C.Use(this);
+        if (!InPlayPhase()||!CanPlayCard(C)) { return; }
         InPlay.Add(C);
         Hand.Remove(C);
+        C.Use(this);
         if (Hand.Count == 0&&!GameController.Controller.Selector.Active) { GameController.Controller.NextPhase(); }
     }
 
@@ -230,9 +245,21 @@ public abstract class Player : MonoBehaviour {
         return dict;
     }
 
+    public virtual void Destroy(Card c, List<Card> loc)
+    {
+        c.Destroy(this,loc);
+        
+    }
+
     public void ResetFlags()
     {
-        Flags.Values.ToList().ForEach(x => x = false);
+        List<string> keys = Flags.Keys.ToList();
+        foreach(string key in keys)
+        {
+          
+           Flags[key] = false;
+        }
+        
     }
     public void SetFlag(string flag,bool val) {
         if (!Flags.ContainsKey(flag))

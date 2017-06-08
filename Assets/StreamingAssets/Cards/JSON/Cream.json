@@ -1,13 +1,15 @@
 {
     "Cost": 7,
+    "id": 0,
     "Name": "Cream",
-    "EffectDes": "Deal 3 damage.\nYou may destroy up to 2 cards in your discard",
+    "EffectDes": "Deal 3 damage.\nChoose a card in your hand, destroy all copies of it in your discard.\n-2 Actions",
     "Collectible": true,
     "ShopImgY": -63.0,
     "InfoImgY": 0.0,
     "InfoImgH": 375.0,
+    "ActionCost": 2,
     "Tags": [
         "Stand"
     ],
-    "WaitDes": ""
+    "WaitDes": "Choose a card in your hand, destroy all copies of it in your discard."
 }

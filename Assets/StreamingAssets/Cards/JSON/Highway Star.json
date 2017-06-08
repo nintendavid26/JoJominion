@@ -1,11 +1,13 @@
 {
     "Cost": 4,
+    "id": 0,
     "Name": "Highway Star",
     "EffectDes": "Deal 1 damage.\nIf you haven't played another Highway Star this turn your opponent has one les coin next turn,\notherwise draw a card.",
     "Collectible": true,
     "ShopImgY": -115.0,
     "InfoImgY": -153.0,
     "InfoImgH": 682.0,
+    "ActionCost": 0,
     "Tags": [
         "Stand"
     ],

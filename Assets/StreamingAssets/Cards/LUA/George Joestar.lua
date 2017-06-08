@@ -1,20 +1,20 @@
 --George Joestar
 function Use()
-	
-	Controller.Wait(Card.Name);
-	
+	User.GetActions(1);
+	Card.SelectCard(User);
 end
 
 Selectable={};
 function SelectCards()
 x=0
 for i=0,9,1 do
-	if Shop[i].Cost<=5 then Selectable[x]=Shop[i];x=x+1; end
+	if Shop[i].Cost<=5 and Controller.ShopCards[Shop[i].Name]>0 
+	then Selectable[x]=Shop[i];x=x+1; end
 	end
 return Selectable;
 end
 
-function Use2()
+function OnSelect()
 User.Gain(Selected.Name,User.Discarded,true);
 return Selected;
 end

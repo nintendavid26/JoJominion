@@ -1,0 +1,13 @@
+{
+    "Cost": 0,
+    "id": 0,
+    "Name": "Vampire",
+    "EffectDes": "When drawn: Take 5 damage & your enemy gains 5 health.",
+    "Collectible": false,
+    "ShopImgY": -115.0,
+    "InfoImgY": 0.0,
+    "InfoImgH": 375.0,
+    "ActionCost": 0,
+    "Tags": [],
+    "WaitDes": ""
+}

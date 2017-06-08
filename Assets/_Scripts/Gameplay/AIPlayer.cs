@@ -43,10 +43,11 @@ public class AIPlayer : Player
     The biggest difficulty would be how to simulate the gamestate.
     One option is going through all of the functions I've made and have them alter a game state's value
     instead of the actual values, this would involve alot of code writing and would likely be very messy
-    with GameState.something everywhere. If I can figure out how to make that work then I think it will be fine.
-    Also like 90% of this class is just AI, so I think it's fine for non AI things to be in here also.
+    with [GameState.something] everywhere. If I can figure out how to make that work then I think it will be fine.
+    Also like 90% of this class is just AI, so I think it's fine for non-AI things to be in here also.
 
     I will also make the thinking code into a coroutine so that all of it doesn't happen in one frame
+	and slow down the game
     */
 
     public struct Decision
@@ -77,11 +78,12 @@ public class AIPlayer : Player
 
     public IEnumerator BeginMainTurnLoop()
     {
-        yield return new WaitForSeconds(0.5f);
+        WaitForSeconds s =new WaitForSeconds(0.5f);
+        yield return s;
         while (CurrentPlayer()) {
             ActionAndCard AC = DecideAction(GameState.current);
             DoAction(AC);
-            yield return new WaitForSeconds(0.5f);
+            yield return s;
         }
 
     }
@@ -137,7 +139,6 @@ public class AIPlayer : Player
     {
         if (AC.TypeOfAction == null)
         {
-            UnityEngine.Debug.Log("DoAction Called on " + AC.TypeOfActionC.Method + " " + AC.Card.Name);
             AC.TypeOfActionC.Invoke(AC.Card);
         }
         else { AC.TypeOfAction.Invoke(); }

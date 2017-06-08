@@ -22,6 +22,7 @@ public class Card : ScriptableObject {
     public float ShopImgY= -115;
     public float InfoImgY = 0;
     public float InfoImgH = 375;
+    public int ActionCost=0;
     //public float ShopImgH = 395;
     public string[] Tags;
     [Multiline]
@@ -37,73 +38,76 @@ public class Card : ScriptableObject {
 
     public void Use(Player User)
     {
-        ParseCard.UseEffect(this,"Use", User);
+        CardParser.UseEffect(this,"Use", User);
         
-        
-        if (ParseCard.ContainsFunction("Use2", Name))
-        {
-            /*
-            List<Card> PossibleCards = new List<Card>();
-            Card Selected = PickFromPossible(PossibleCards);
-            ParseCard.UseEffect(this,"Use2", User,Card);    
-        */
-        }
     }
 
     public bool HasFunction(string f)
     {
-        return ParseCard.ContainsFunction(f, Name);
+        return CardParser.ContainsFunction(f, Name);
     }
 
-    public void Use2(Player User, Card Option)
+    public void OnSelect(Player User, Card Option)
     {
-        ParseCard.UseEffect2(this, "Use2", User, Option);
+        CardParser.OnSelect(this, "OnSelect", User, Option);
     }
 
 
     public void AlterCost(Player User)
     {
-        ParseCard.UseEffect(this, "AlterCost", User);
+        CardParser.UseEffect(this, "AlterCost", User);
     }
     public void OnGain(Player Gainer)
     {
         Debug.Log("OnGain");
-        ParseCard.UseEffect(this, "OnGain", Gainer);
+        CardParser.UseEffect(this, "OnGain", Gainer);
         
     }
 
     public void OnBuy(Player Buyer)
     {
         if (Buyer.GetComponent<AIPlayer>()) { GameController.Controller.ShopCards[Name]--; }
-        ParseCard.UseEffect(this, "OnBuy", Buyer);
+        CardParser.UseEffect(this, "OnBuy", Buyer);
         if (Buyer.GetFlag("MayPlaceOnTopOnBuy"))
         {
             //
             //
         }
-        ParseCard.UseEffect(this, "OnGain", Buyer);
+        CardParser.UseEffect(this, "OnGain", Buyer);
 
     }
     public void OnDraw(Player Drawer)
     {
-        ParseCard.UseEffect(this, "OnDraw", Drawer);
+        CardParser.UseEffect(this, "OnDraw", Drawer);
     }
 
     public void Destroy(Player Controller,List<Card> Loc)
     {
         GameController.Controller.Destroyed.Add(this);
         Loc.Remove(this);
-        ParseCard.UseEffect(this, "OnDestroy", Controller);
+        CardParser.UseEffect(this, "OnDestroy", Controller);
     }
 
     public void OnStartBuyPhase(Player Current)
     {
-        ParseCard.UseEffect(this, "OnStartBuyPhase", Current);
+        CardParser.UseEffect(this, "OnStartBuyPhase", Current);
     }
 
     public void OnEndBuyPhase(Player Current)
     {
-        ParseCard.UseEffect(this, "OnEndBuyPhase", Current);
+        CardParser.UseEffect(this, "OnEndBuyPhase", Current);
+    }
+
+    public void SelectCard(Player Current)
+    {
+        if (CardParser.ContainsFunction("SelectCard", Name))
+        {
+            List<Card> Selectable = CardParser.GetSelectable(this, Current);
+            if (Selectable.Count != 0)
+            {
+                Current.StartSelectionProcess(Selectable, Name);
+            }
+        }
     }
 
 
@@ -119,6 +123,7 @@ public class Card : ScriptableObject {
     }
     public void ToJSON()
     {
+        Debug.Log("Saved "+Name+" to json");
         string json = JsonUtility.ToJson(this,true);
         File.WriteAllText(Application.streamingAssetsPath + "/Cards/JSON/" + Name+".json", json);
     }

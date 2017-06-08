@@ -1,11 +1,13 @@
 {
     "Cost": 3,
+    "id": 0,
     "Name": "Shigechi",
     "EffectDes": "+1 Money for each 5 cards in your deck.\n+1 Buy.",
     "Collectible": true,
     "ShopImgY": -115.0,
     "InfoImgY": -153.0,
     "InfoImgH": 682.0,
+    "ActionCost": 0,
     "Tags": [
         "Human"
     ],

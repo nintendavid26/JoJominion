@@ -26,7 +26,6 @@ public class SelectCard : MonoBehaviour, IPointerClickHandler{
 
         if (eventData.button == PointerEventData.InputButton.Right)
         {
-            Debug.Log("Right");
             GameController.Controller.ShowCardInfo(C.Name);
         }
     }

@@ -1,11 +1,13 @@
 {
     "Cost": 10,
+    "id": 0,
     "Name": "Johnny Joestar",
-    "EffectDes": "Deal 5 damage.",
+    "EffectDes": "Draw a card, then deal damage and gain coins equal to it's cost.",
     "Collectible": true,
     "ShopImgY": -63.0,
     "InfoImgY": -125.0,
     "InfoImgH": 838.0,
+    "ActionCost": 0,
     "Tags": [
         "Human"
     ],

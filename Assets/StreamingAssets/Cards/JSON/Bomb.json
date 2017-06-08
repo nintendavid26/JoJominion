@@ -1,11 +1,13 @@
 {
     "Cost": 0,
+    "id": 0,
     "Name": "Bomb",
     "EffectDes": "When drawn, Take 10 damage,draw a card? then destroy this.",
     "Collectible": false,
     "ShopImgY": -115.0,
     "InfoImgY": 0.0,
     "InfoImgH": 375.0,
+    "ActionCost": 0,
     "Tags": [],
     "WaitDes": ""
 }

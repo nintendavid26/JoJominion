@@ -1,5 +1,5 @@
 --Killer Queen
 function Use()
-	User.Enemy.Gain("Bomb");
+	Enemy.Gain("Bomb",Enemy.Discarded);
 	User.GetMoney(2);
 end

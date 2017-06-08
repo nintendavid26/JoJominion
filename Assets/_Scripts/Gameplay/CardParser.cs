@@ -4,22 +4,21 @@ using System.Linq;
 using NCalc;//For string arithmetic
 using MoonSharp.Interpreter;
 using System.IO;
+using System;
 
-public static class ParseCard {
+public static class CardParser {
 
     public static void UseEffect(Card card,string FName,Player User)
     {
         if (!ContainsFunction(FName,card.Name)) { return; }
         Script script = Parse(card,User);
-        script.Call(script.Globals[FName] );
-        
-        if (ContainsFunction("SelectCard", card.Name))
+        try {
+            script.Call(script.Globals[FName]);
+        }
+        catch(Exception e)
         {
-            List<Card> Selectable = GetSelectable(card, User);
-            if (Selectable.Count != 0)
-            {
-                User.StartSelectionProcess(Selectable, card.Name);
-            }
+            
+            Debug.LogError(card.Name+" calling " + FName+" failed."+e + "\n");
         }
 
 
@@ -118,22 +117,27 @@ public static class ParseCard {
         Script script = Parse(card, User);
         DynValue val = script.Call(script.Globals["SelectCards"]);
         Selectable = script.Globals.Get("Selectable").ToObject<List<Card>>();
-
         return Selectable;
     }
 
-    public static void UseEffect2(Card card, string FName, Player User,Card c)//Used after a card is selected
+    public static void OnSelect(Card card, string FName, Player User,Card c)//Used after a card is selected
     {
         if (!ContainsFunction(FName, card.Name)) { return; }
         Dictionary<string,object> d = new Dictionary<string, object>() { { "Selected", (Card)c } };
         Script script = Parse(card, User,d);
-        script.Call(script.Globals[FName]);
+        try {
+            script.Call(script.Globals[FName]);
+        }
+        catch(Exception e)
+        {
+            Debug.LogError("Error calling " + FName + " in " + card.Name+"\n"+ e);
+        }
     }
   
 
 
 
-    public static bool ContainsFunction(string FName,string card) {
+    public static bool ContainsFunction(string FName,string card) {//There's probably a better way to do this
         return File.ReadAllText(Application.streamingAssetsPath + "/Cards/LUA/" + card + ".lua").Contains(FName);
     }
 

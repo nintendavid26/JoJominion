@@ -4,6 +4,5 @@ function Use()
 end
 
 function OnDestroy()
-	Card c=User.SelectCard(User.Hand);
-	c.Destroy();
+	User.GetMoney(5);
 end
