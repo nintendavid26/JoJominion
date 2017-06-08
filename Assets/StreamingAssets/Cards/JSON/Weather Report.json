@@ -1,11 +1,13 @@
 {
     "Cost": 5,
+    "id": 0,
     "Name": "Weather Report",
     "EffectDes": "When you play or buy this give your enemy a snail.",
     "Collectible": true,
     "ShopImgY": -110.0,
     "InfoImgY": -155.0,
     "InfoImgH": 685.0,
+    "ActionCost": 0,
     "Tags": [
         "Stand"
     ],

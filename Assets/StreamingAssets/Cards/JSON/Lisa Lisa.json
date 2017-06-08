@@ -1,13 +1,15 @@
 {
     "Cost": 7,
+    "id": 0,
     "Name": "Lisa Lisa",
-    "EffectDes": "+3 Money",
+    "EffectDes": "Discard a card. If you do +6 coins.",
     "Collectible": true,
     "ShopImgY": -90.0,
     "InfoImgY": -200.0,
     "InfoImgH": 900.0,
+    "ActionCost": 0,
     "Tags": [
         "Human"
     ],
-    "WaitDes": ""
+    "WaitDes": "Discard a card and get +6 coins"
 }

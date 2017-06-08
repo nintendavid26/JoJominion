@@ -14,6 +14,7 @@ public class PlayerUI : MonoBehaviour {
     public Button Button;
     public Text currentPhase;
     public Image Discard;
+    public float CardMoveSpeed;
 
     public struct ButtonOptions
     {
@@ -27,6 +28,14 @@ public class PlayerUI : MonoBehaviour {
     public void Start()
     {
       
+    }
+
+    public IEnumerator MoveCardToPosition(Image Card,Vector2 target,Vector2 TargetSize) {
+        Image card = Instantiate(Card);
+        while ((Vector2)card.transform.position != target) {
+            card.transform.position = Vector3.MoveTowards(Card.transform.position, target, CardMoveSpeed * Time.deltaTime);
+            yield return new WaitForEndOfFrame();
+        }
     }
 
     public void UpdateHand()//will need to change so cards in hand don't change order
@@ -52,7 +61,9 @@ public class PlayerUI : MonoBehaviour {
         HP.text = "Player HP "+player.Hp + "/" + player.MaxHp;
         EHP.text = "Enemy HP " + Enemy.Hp + "/" + Enemy.MaxHp;
         Deck.text = player.Deck.Count.ToString();
-        if (player.CurrentPlayer()) { Money.text = "Money: " + player.Money; }
+        if (player.CurrentPlayer()) {
+            Money.text = "Money: " + player.Money;
+        }
         else { Money.text = "Enemy Money: " + Enemy.Money; }
         currentPhase.text = "Current Phase:\n"+Enum.GetName(typeof(GameController.Phase), GameController.Controller.CurrentPhase);
         if (player.Discarded.Count > 0) { Discard.gameObject.SetActive(true); Discard.sprite = player.Discarded.Last().sprite(); }

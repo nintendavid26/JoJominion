@@ -1,11 +1,13 @@
 {
     "Cost": 2,
+    "id": 0,
     "Name": "Tonio",
     "EffectDes": "+1 HP\n \nIf you have 50 or less HP, +1 Money",
     "Collectible": true,
     "ShopImgY": -45.0,
     "InfoImgY": -70.0,
     "InfoImgH": 685.0,
+    "ActionCost": 0,
     "Tags": [
         "Human"
     ],

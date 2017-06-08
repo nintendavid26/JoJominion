@@ -14,7 +14,28 @@ public class HumanPlayer : Player {
 
     }
 
+    public void PlayAllBasic()
+    {
+        StartCoroutine(PlayAllbasic());
+    }
 
+    public override void Destroy(Card c, List<Card> loc)
+    {
+        base.Destroy(c, loc);
+        UI.UpdateHand();
+    }
+
+    public IEnumerator PlayAllbasic()
+    {
+        WaitForSeconds s = new WaitForSeconds(0.25f);
+        List<Card> Basic = Hand.Where(x => x.Cost == 0).ToList();
+        int j = Basic.Count;
+        for (int i = 0; i < j; i++)
+        {
+            PlayCard(Basic[i]);
+            yield return s;
+        }
+    }
 
     public override void Draw(int i = 1)
     {
@@ -41,6 +62,7 @@ public class HumanPlayer : Player {
     public override void PlayCard(Card C)
     {
         base.PlayCard(C);
+        //StartCoroutine(UI.MoveCardToPosition();
         UI.UpdateHand();
     }
     public override bool CurrentPlayer()
@@ -57,7 +79,6 @@ public class HumanPlayer : Player {
 
     public override void StartSelectionProcess(List<Card> cards, string Caller)
     {
-        UnityEngine.Debug.Log(Name + "started selection process");
         GameController.Controller.BringUpSelectCard(cards, Card.Get(Caller));
     }
 }

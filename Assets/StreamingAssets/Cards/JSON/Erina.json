@@ -1,0 +1,15 @@
+{
+    "Cost": 2,
+    "id": 0,
+    "Name": "Erina",
+    "EffectDes": "If you played a card that costs 8 or more this turn, +4 coins.\nOtherwise +1 coin.\n+1 Action",
+    "Collectible": true,
+    "ShopImgY": -63.0,
+    "InfoImgY": -113.0,
+    "InfoImgH": 600.0,
+    "ActionCost": 0,
+    "Tags": [
+        "Stand"
+    ],
+    "WaitDes": ""
+}

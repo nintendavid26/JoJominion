@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System.Linq;
 using System.IO;
 using System;
@@ -27,6 +28,7 @@ public class GameController : MonoBehaviour {
     public bool ShowingCardInfo = false;
     public Card AIcardInUse = null;
     public Card AIselectedCard = null;
+    public Text WinText;
 
     public Queue<ActionAndCard> ActionQueue=new Queue<ActionAndCard>();
 
@@ -62,19 +64,23 @@ public class GameController : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
         if (Selector.InUse != null && Selector.Selected != null)
-        {
+        { 
             Card c=Selector.GetSelected();
             Selector.Selected = null;
-            Selector.InUse.Use2(player, c);
+            Selector.InUse.OnSelect(player, c);
+            if (player.Hand.Count == 0)
+            {
+                NextPhase();
+            }
 
         }
         if (AIcardInUse != null && AIselectedCard != null)
         {
-            AIcardInUse.Use2(enemy,AIselectedCard);
+            AIcardInUse.OnSelect(enemy,AIselectedCard);
             AIselectedCard = null;
             AIcardInUse = null;
         }
@@ -91,10 +97,10 @@ public class GameController : MonoBehaviour {
         }
         else { CurrentPhase++; }
 
-        if (CurrentPhase == Phase.Buy|| CurrentPhase == Phase.EBuy) {
+        if (CurrentPhase == Phase.Buy || CurrentPhase == Phase.EBuy) {
             ShopCards.Keys.ToList().ToCards().ForEach(x => x.OnStartBuyPhase(player));
         }
-        else if (CurrentPhase == Phase.End|| CurrentPhase == Phase.EEnd)
+        else if (CurrentPhase == Phase.End || CurrentPhase == Phase.EEnd)
         {
             ShopCards.Keys.ToList().ToCards().ForEach(x => x.OnEndBuyPhase(player));
             CurrentPlayer().EndTurn();
@@ -178,4 +184,5 @@ public class GameController : MonoBehaviour {
         }
         AllCards = Card.Cards.Values.Where(x=>x.Collectible).ToList();
     }
+
 }

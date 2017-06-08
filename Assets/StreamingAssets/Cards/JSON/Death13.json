@@ -1,0 +1,15 @@
+{
+    "Cost": 4,
+    "id": 0,
+    "Name": "Death13",
+    "EffectDes": "Destroy a card in your hand.\nGain coins equal to its cost.\n-1 Action",
+    "Collectible": true,
+    "ShopImgY": -63.0,
+    "InfoImgY": -160.0,
+    "InfoImgH": 700.0,
+    "ActionCost": 1,
+    "Tags": [
+        "Stand"
+    ],
+    "WaitDes": "Detroy a card in your hand and gain coins equal to it's cost."
+}

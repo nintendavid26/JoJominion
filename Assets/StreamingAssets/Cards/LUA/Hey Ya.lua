@@ -1,6 +1,6 @@
 --Hey Ya
 function Use()
-	Controller.Wait();
+	Card.SelectCard(User);
 end
 
 Selectable={};
@@ -10,7 +10,7 @@ return Selectable
 end
 
 
-function Use2()
+function OnSelect()
 	for i=0,1,1 do
 		if User.Deck[0] == Selected then User.AddToHand(User.Deck[0],User.Deck);
 		else User.Discard(User.Deck[0],User.Deck);

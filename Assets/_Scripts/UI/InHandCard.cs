@@ -21,7 +21,7 @@ public class InHandCard : MonoBehaviour, IPointerClickHandler{
     {
         if (GameController.Controller.CanUseCard(Owner)&&CardName!="")
         {
-            Debug.Log("pressed");
+            
             Owner.PlayCard(CardName);
         }
     }

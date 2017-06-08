@@ -1,0 +1,15 @@
+{
+    "Cost": 6,
+    "id": 0,
+    "Name": "Santana",
+    "EffectDes": "Deal 5 damage and gain 2 coins.\nDraw 4 cards instead of 5 at the end of the turn.",
+    "Collectible": true,
+    "ShopImgY": 0.0,
+    "InfoImgY": 0.0,
+    "InfoImgH": 375.0,
+    "ActionCost": 0,
+    "Tags": [
+        "Stand"
+    ],
+    "WaitDes": ""
+}
